@@ -7,7 +7,7 @@ Um aplicativo de contador React simples que utiliza o hook `useState` para geren
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/Raphael015/Programa-react-contador
+    git clone https://github.com/Raphael015/aumentar-o-valor-de-uma-propriedade
     ```
 
 2. Navegue até o diretório do projeto:
@@ -35,22 +35,17 @@ O aplicativo será iniciado em `http://localhost:3000/`.
 Este aplicativo é bastante simples. Ao iniciar, você verá a contagem atual e dois botões para incrementar e decrementar o valor.
 
 ```jsx
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import obterMensagem from './api/mensagem';
-import MeuComponente from './MeuComponente'; 
+import MeuComponente from './MeuComponente';
 
 function App() {
   const mensagem = obterMensagem();
-
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   const increment = () => {
     setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
   };
 
   return (
@@ -60,8 +55,7 @@ function App() {
         <p>{mensagem}</p>
         <h1>Contador</h1>
         <p>Contagem: {count}</p>
-        <button onClick={decrement}>Remover</button>
-        <button onClick={increment}>Adicionar</button>
+        <button onClick={increment}>Aumentar Contador</button>
       </header>
     </div>
   );
